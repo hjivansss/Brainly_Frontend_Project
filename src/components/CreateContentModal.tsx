@@ -1,64 +1,91 @@
 import { CloseIcon } from "../Icons/CloseIcon";
 import { Button } from "./Button";
 import { Input } from "../components/Input";
-import { useRef } from "react";
-import {useState} from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 
-//Defining enum so that no error is there while typing the strings
-enum ContentType{
-    Youtube = "youtube",
-    Twitter = "twitter"
+// Enum for content types
+enum ContentType {
+  Youtube = "youtube",
+  Twitter = "twitter",
+  Link = "link",
 }
-//controlled component(here,both usetate variable are outside the function)
-export function CreateContentModal({open,onClose}){
-    const titleRef=useRef<HTMLInputElement>();
-    const linkRef = useRef<HTMLInputElement>();
-    const [type,setType] = useState(ContentType.Youtube);
-    
 
-    function addContent(){
-     const title = titleRef.current?.value;
-     const link =  linkRef.current?.value;
+export function CreateContentModal({ open, onClose }) {
+  const titleRef = useRef<HTMLInputElement>();
+  const linkRef = useRef<HTMLInputElement>();
+  const [type, setType] = useState(ContentType.Youtube);
 
-     axios.post(BACKEND_URL+"/api/v1/content",{
+  function addContent() {
+    const title = titleRef.current?.value;
+    const link = linkRef.current?.value;
+
+    axios.post(
+      BACKEND_URL + "/api/v1/content",
+      {
         title,
         link,
-        type
-        
-     },{
-        headers:{
-            "Authorization":localStorage.getItem("token")
-        }
-     })
-      
-      onClose();
+        type,
+      },
+      {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      }
+    );
 
-    }
-        return <div>
-            {open && 
-            <div className="w-screen h-screen bg-slate-400 fixed top-0 left-0 bg-opacity-60 flex justify-center">
-                    <div className="flex flex-col justify-center">
-                        <span className="bg-white opacity-100 p-4">
-                            <div className="flex justify-end cursor-pointer " onClick={onClose}>
-                                <CloseIcon/>
-                            </div>
-                            <div>
-                                 <Input reference={titleRef}placeholder={"Title"}/>
-                                 <Input  reference={linkRef}placeholder={"Link"}/>
-                            </div>
-                            <h1>Type : </h1>
-                                <div className="gap-1 p-2">
-                                    <Button text="Youtube"  size="md" variant={type===ContentType.Youtube ? "primary" : "secondary"} onClick={()=> {setType(ContentType.Youtube)}}/>
-                                    <Button text="Twitter"  size="md" variant={type===ContentType.Twitter ? "primary" : "secondary"} onClick={()=>{setType(ContentType.Twitter)}}/>
-                                </div>
-                            <div className="flex justify-center ">
-                                <Button onClick={addContent} size="md" variant="primary" text="Submit" />
-                            </div>
-                        </span>
-                    </div>
-            </div>}
+    onClose();
+  }
+
+  return (
+    open && (
+      <div className="fixed inset-0 z-50 bg-brand-300 bg-opacity-50 flex items-center justify-center px-4">
+        <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+          {/* Close button */}
+          <div className="flex justify-end">
+            <button onClick={onClose} className="text-gray-600 hover:text-black">
+              <CloseIcon />
+            </button>
+          </div>
+
+          {/* Form Fields */}
+          <div className="space-y-2 text-center">
+            <Input reference={titleRef} placeholder={"Title"} />
+            <Input reference={linkRef} placeholder={"Link"} />
+
+            {/* Type Buttons */}
+            <div>
+              <h2 className="font-medium text-gray-700 mb-2">Type:</h2>
+              <div className="grid grid-cols-3 gap-2">
+                <Button
+                  text="Youtube"
+                  size="sm"
+                  variant={type === ContentType.Youtube ? "primary" : "secondary"}
+                  onClick={() => setType(ContentType.Youtube)}
+                />
+                <Button
+                  text="Twitter"
+                  size="sm"
+                  variant={type === ContentType.Twitter ? "primary" : "secondary"}
+                  onClick={() => setType(ContentType.Twitter)}
+                />
+                <Button
+                  text="Link"
+                  size="sm"
+                  variant={type === ContentType.Link ? "primary" : "secondary"}
+                  onClick={() => setType(ContentType.Link)}
+                />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex justify-center pt-4">
+              <Button onClick={addContent} size="md" variant="primary" text="Submit" />
+            </div>
+          </div>
         </div>
+      </div>
+    )
+  );
 }
-
