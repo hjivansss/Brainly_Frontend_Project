@@ -13,18 +13,11 @@ import { Footer } from '../components/Footer';
 import { UserIcon } from '../Icons/UserIcon';
 import { AccountUsername } from '../components/Username';
 
-type ContentItem = {
-  _id: string;
-  type: string;
-  title: string;
-  link: string;
-};
-
 export function Dashboard() {
   const [modalOpen, setmodalOpen] = useState(false);
   const { contents, refresh } = useContent();
   const [selectedContent, setSelectedContent] = useState<string | null>('All');
-  const filteredContents = selectedContent === 'All' ? contents : (contents as ContentItem[]).filter((item) => item.type === selectedContent);
+  const filteredContents = selectedContent === 'All' ? contents : contents.filter((item) => item.type === selectedContent);
 
   useEffect(() => {
     refresh();
