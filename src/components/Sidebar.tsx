@@ -2,7 +2,6 @@ import { TwitterIcon } from "../Icons/Twitter";
 import { YoutubeIcon } from "../Icons/Youtube";
 import { SidebarItem } from "./SidebarItem";
 import { Logo } from "../Icons/Logo";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkIcon } from "../Icons/LinkIcon";
 import { AllIcon } from "../Icons/AllIcon";
@@ -11,8 +10,6 @@ import { LogoutIcon } from "../Icons/LogoutIcon";
 
 
 export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>void; onClose?: () => void}){
-      const [settingsOpen,setsettingsOpen]=useState(false);
-      const [aboutOpen,setAboutOpen]= useState(false);
       const navigate = useNavigate();
       const handleLogout=()=>{
         localStorage.removeItem("token");
@@ -22,7 +19,14 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
      
     return <div className="w-64 md:min-w-72 ">
                 <div className="bg-white w-64 md:min-w-72 min-h-screen top-0 left-0 absolute fixed border-r border-gray-100 pl-6 ">
-                    <div className="flex text-2xl pt-8 pl-2">
+                    {/* Close button - only visible on mobile */}
+                    <button
+                        className="md:hidden text-gray-500 hover:text-gray-700 ml-50 mt-2"
+                        onClick={()=>{onClose?.()}}
+                    >
+                        ✕
+                    </button>
+                    <div className="flex text-2xl pt-4 pl-2">
                         <div className="pr-2 text-brand-600 pl-2">
                             <Logo/>
                         </div>

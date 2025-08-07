@@ -10,7 +10,8 @@ interface CardProps{
     title: string;
     type:"twitter"| "youtube" |"link";
     link:string;
-    id:string
+    id:string;
+    readonly?:boolean
 
 }
 
