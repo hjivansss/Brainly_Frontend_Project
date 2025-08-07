@@ -109,7 +109,7 @@ export function ReadOnlyBrainView() {
                 type={item.type}
                 link={item.link}
                 id={item._id}
-                readOnly={true}
+              
               />
             ))}
           </div>
