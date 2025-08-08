@@ -49,7 +49,7 @@ export function Card(props: CardProps) {
         }
     }, [props.type, props.link]);
     return <>
-        <div className="p-4 bg-white rounded-md border border-gray-200 shadow-sm   max-w-58 min-w-58 md:max-w-72 md:min-h-48  md:min-w-72">
+        <div className="p-4 bg-white rounded-md border border-gray-200 shadow-sm   w-72 md:max-w-72 md:min-h-48  md:min-w-72">
                 <div className="flex  justify-between "> 
                     <div className="flex items-center text-md "> 
                         <div className=" pr-2  text-gray-900">
