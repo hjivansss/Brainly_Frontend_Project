@@ -8,10 +8,12 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
         {/* Logo + Brand */}
         <div className="flex items-center gap-2 mb-4 md:mb-0">
-          <div className="text-brand-600">
+          <div className="text-brand-600 ">
             <Logo />
           </div>
-          <span className="text-lg font-semibold italic font-poppins">Brainly</span>
+          <span className="text-md font-bold font-poppins italic text-gray-900 tracking-tight">
+            Second<span className="text-indigo-500">Brain</span>
+          </span>
         </div>
 
         {/* Links */}

@@ -17,7 +17,7 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
     }
      
     return <div className="w-64 md:min-w-72 ">
-                <div className="bg-white h-120 w-64 md:min-w-72 md:min-h-screen top-0 left-0 absolute fixed border-r border-gray-100 pl-6 ">
+                <div className="bg-white h-screen  w-64 md:min-w-72 md:min-h-screen top-0 left-0 absolute fixed border-r border-gray-100 pl-6 ">
                     {/* Close button - only visible on mobile */}
                     <button
                         className="md:hidden text-gray-500 hover:text-gray-700 ml-50 mt-2"
@@ -29,7 +29,9 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
                         <div className="pr-2 text-brand-600 pl-2">
                             <Logo/>
                         </div>
-                        Brainly
+                        <span className="text-2xl font-bold font-poppins italic text-gray-900 tracking-tight">
+                         Second<span className="text-indigo-500">Brain</span>
+                        </span>
                     </div>
                     <div className="pt-4 pl-4">
                         <SidebarItem icon={<AllIcon/>} text="All Content" onClick={()=>onSelect('All')}/>

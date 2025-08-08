@@ -9,14 +9,14 @@ interface NavbarProps {
 }
 
 export function Navbar({ onHamburgerClick }: NavbarProps) {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
-    <div className=" bg-gray-100 shadow-sm md:hidden">
+    <div className="bg-gray-100 shadow-sm md:hidden">
       {/* Top Row */}
       <div className="flex items-center justify-between px-2 py-2">
         {/* Left: User Icon + Username */}
         <div
-          className="flex items-center gap-2 px-3 py-1 rounded-full 
+          className="flex items-center gap-0.5 px-3 py-1 rounded-full 
                      backdrop-blur-sm 
                      transition duration-200 hover:bg-gray-100 
                      select-none cursor-default"
@@ -24,18 +24,23 @@ export function Navbar({ onHamburgerClick }: NavbarProps) {
           <div className="p-1 bg-indigo-100 rounded-full text-indigo-600">
             <UserIcon />
           </div>
-          <span className="text-sm font-medium text-gray-800 whitespace-nowrap">
+          <span className="text-lg font-medium text-gray-800 whitespace-nowrap">
             <AccountUsername />
           </span>
         </div>
 
         {/* Right: About + FAQ + Hamburger */}
         <div className="flex items-center gap-3">
-          <button className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition"
-           onClick={() => navigate("/about")}>
+          <button
+            className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition"
+            onClick={() => navigate("/about")}
+          >
             About
           </button>
-          <button className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition">
+          <button
+            className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition"
+            onClick={() => navigate("/faqs")}
+          >
             FAQ
           </button>
           <button

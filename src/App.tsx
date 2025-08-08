@@ -6,6 +6,7 @@ import { Signin } from  './pages/Signin';
 import {BrowserRouter,Routes,Route} from "react-router-dom"
 import {ReadOnlyBrainView} from "./pages/ReadOnlyBrainView"
 import { AboutPage } from './pages/AboutPage';
+import { FAQPage } from './pages/FAQPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   <Route path="/share/:sharelink" element ={<ReadOnlyBrainView/>} />
                   <Route path="/about" element={<AboutPage/>} />
+                  <Route path="/faqs" element={<FAQPage/>}/>
 
            </Routes>
          </BrowserRouter>
