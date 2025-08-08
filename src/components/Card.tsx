@@ -49,7 +49,7 @@ export function Card(props: CardProps) {
         }
     }, [props.type, props.link]);
     return <>
-        <div className="p-4 bg-white rounded-md border border-gray-200 shadow-sm  max-w-58 min-w-58 md:max-w-72 md:min-h-48  md:min-w-72">
+        <div className="p-4 bg-white rounded-md border border-gray-200 shadow-sm   max-w-58 min-w-58 md:max-w-72 md:min-h-48  md:min-w-72">
                 <div className="flex  justify-between "> 
                     <div className="flex items-center text-md "> 
                         <div className=" pr-2  text-gray-900">
@@ -73,17 +73,17 @@ export function Card(props: CardProps) {
 
                 <div className="pt-4">
                         {/*Embedding and Conditionally rendering a Youtube video  */}
-                        {props.type ==="youtube" && <iframe className="w-full "  src={props.link.replace("watch?v=","embed/")}
+                        {props.type ==="youtube" && <div className=""><iframe className="w-full "  src={props.link.replace("watch?v=","embed/")}
                          title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write;encrypted-media;
                           gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" 
-                          allowFullScreen></iframe>}
+                          allowFullScreen></iframe></div>}
                          
 
                         {/*Embedding twitter post
                         The tweet embed stays within the card width.
                         Any accidental overflow is hidden.*/}
-                        { props.type === "twitter" && <div className="max-w-full overflow-hidden">
-                         <blockquote className="twitter-tweet w-full">
+                        { props.type === "twitter" && <div className="max-w-full overflow-hidden max-h-48">
+                         <blockquote className="twitter-tweet w-full ">
                          <a href={props.link.replace("x.com", "twitter.com")}></a>
                          </blockquote>
                          </div>}

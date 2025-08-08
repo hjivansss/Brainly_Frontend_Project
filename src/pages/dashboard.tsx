@@ -115,7 +115,7 @@ export function Dashboard() {
                           },
                         }
                       );
-                      const shareUrl = `http://localhost:5173/share/${response.data.hash}`;
+                      const shareUrl = `${BACKEND_URL}${response.data.hash}`;
                       alert(shareUrl);
                     }}
                     variant="primary"

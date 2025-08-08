@@ -15,7 +15,7 @@ export function Signin() {
     const password = passwordRef.current?.value;
 
     try {
-      const response = await axios.post(BACKEND_URL + "/api/v1/signin", {
+      const response = await axios.post(BACKEND_URL+"/api/v1/signin", {
         username,
         password,
       });
@@ -31,7 +31,7 @@ export function Signin() {
   }
 
   function goToSignup() {
-    navigate("/signup");
+    navigate("/");
   }
 
   return (

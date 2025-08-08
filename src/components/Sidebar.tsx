@@ -14,7 +14,7 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
       const handleLogout=()=>{
         localStorage.removeItem("token");
         localStorage.removeItem("username");
-        navigate("/signup");
+        navigate("/");
     }
      
     return <div className="w-64 md:min-w-72 ">
@@ -37,7 +37,7 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
                         <SidebarItem icon={<TwitterIcon/>} text="Twitter" onClick={()=>onSelect('twitter')}/>
                         <SidebarItem icon={<YoutubeIcon/>} text="Youtube" onClick={()=>onSelect('youtube')}/>
                         <SidebarItem icon={<LinkIcon/>}    text="Links"   onClick={()=>onSelect('link')}/>
-                        <span className="flex cursor-pointer ml-4 gap-2 pt-1 text-gray-700"  onClick={() => {
+                        <span className="flex cursor-pointer  gap-2 pt-1 text-gray-700  "  onClick={() => {
                                                                      onClose?.();     // Close sidebar if on mobile
                                                                      navigate("/about");
                                                                      }}>
