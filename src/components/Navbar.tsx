@@ -9,7 +9,7 @@ interface NavbarProps {
 
 export function Navbar({ onHamburgerClick }: NavbarProps) {
   return (
-    <div className="bg-gradient-to-r from-indigo-50 to-gray-100  shadow-sm md:hidden">
+    <div className=" bg-gray-100 shadow-sm md:hidden">
       {/* Top Row */}
       <div className="flex items-center justify-between px-2 py-2">
         {/* Left: User Icon + Username */}
