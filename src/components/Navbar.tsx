@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { HamburgerIcon } from "../Icons/hamburgericon";
 import { Logo } from "../Icons/Logo";
 import { UserIcon } from "../Icons/UserIcon";
@@ -8,6 +9,7 @@ interface NavbarProps {
 }
 
 export function Navbar({ onHamburgerClick }: NavbarProps) {
+   const navigate = useNavigate();
   return (
     <div className=" bg-gray-100 shadow-sm md:hidden">
       {/* Top Row */}
@@ -29,7 +31,8 @@ export function Navbar({ onHamburgerClick }: NavbarProps) {
 
         {/* Right: About + FAQ + Hamburger */}
         <div className="flex items-center gap-3">
-          <button className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition">
+          <button className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition"
+           onClick={() => navigate("/about")}>
             About
           </button>
           <button className="px-1 py-1 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 active:scale-95 transition">

@@ -5,7 +5,6 @@ import { Logo } from "../Icons/Logo";
 import { useNavigate } from "react-router-dom";
 import { LinkIcon } from "../Icons/LinkIcon";
 import { AllIcon } from "../Icons/AllIcon";
-import { AboutIcon } from "../Icons/AboutIcon";
 import { LogoutIcon } from "../Icons/LogoutIcon";
 
 
@@ -18,7 +17,7 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
     }
      
     return <div className="w-64 md:min-w-72 ">
-                <div className="bg-white w-64 md:min-w-72 min-h-screen top-0 left-0 absolute fixed border-r border-gray-100 pl-6 ">
+                <div className="bg-white h-120 w-64 md:min-w-72 md:min-h-screen top-0 left-0 absolute fixed border-r border-gray-100 pl-6 ">
                     {/* Close button - only visible on mobile */}
                     <button
                         className="md:hidden text-gray-500 hover:text-gray-700 ml-50 mt-2"
@@ -37,13 +36,6 @@ export function Sidebar({onSelect,  onClose}:{onSelect:(contentType:string )=>vo
                         <SidebarItem icon={<TwitterIcon/>} text="Twitter" onClick={()=>onSelect('twitter')}/>
                         <SidebarItem icon={<YoutubeIcon/>} text="Youtube" onClick={()=>onSelect('youtube')}/>
                         <SidebarItem icon={<LinkIcon/>}    text="Links"   onClick={()=>onSelect('link')}/>
-                        <span className="flex cursor-pointer  gap-2 pt-1 text-gray-700  "  onClick={() => {
-                                                                     onClose?.();     // Close sidebar if on mobile
-                                                                     navigate("/about");
-                                                                     }}>
-                          <AboutIcon/>
-                          About
-                        </span>
                    </div>
 
                    {/*Settings*/}
