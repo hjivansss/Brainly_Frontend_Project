@@ -7,7 +7,7 @@ import { ShareIcon } from '../Icons/ShareIcon';
 import { useState, useEffect } from 'react';
 import { useContent } from '../hooks/useContent';
 import axios from 'axios';
-import { BACKEND_URL } from '../config';
+import { BACKEND_URL, FRONTEND_URL } from '../config';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { UserIcon } from '../Icons/UserIcon';
@@ -115,7 +115,7 @@ export function Dashboard() {
                           },
                         }
                       );
-                      const shareUrl = `${BACKEND_URL}${response.data.hash}`;
+                      const shareUrl = `${window.location.origin}/share/${response.data.hash}`;
                       alert(shareUrl);
                     }}
                     variant="primary"
