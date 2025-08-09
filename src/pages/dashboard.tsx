@@ -7,7 +7,7 @@ import { ShareIcon } from '../Icons/ShareIcon';
 import { useState, useEffect } from 'react';
 import { useContent } from '../hooks/useContent';
 import axios from 'axios';
-import { BACKEND_URL, FRONTEND_URL } from '../config';
+import { BACKEND_URL } from '../config';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { UserIcon } from '../Icons/UserIcon';
